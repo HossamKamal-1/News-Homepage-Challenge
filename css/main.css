@@ -18,14 +18,14 @@
 
 /* Start Variables */
 :root {
+  --soft-orange: hsl(35, 77%, 62%);
+  --soft-red: hsl(5, 85%, 63%);
+  --off-white: hsl(36, 100%, 99%);
+  --grayish-blue: hsl(233, 8%, 79%);
+  --dark-grayish-blue: hsl(236, 13%, 42%);
+  --very-dark-blue: hsl(240, 100%, 5%);
   --main-black-color: #00001a;
-  --main-background-color: #fefdf9;
-  --section-heading-color: #d19e64;
-  --section-number-color: #d0ced0;
-  --buttons-color: #f25d50;
-  --text-color: #9e9fb4;
   --main-transition: 0.3s;
-
 }
 
 /* End Variables */
@@ -45,9 +45,8 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: var(--main-background-color);
+  background-color: var(--off-white);
   font-size: 1.6rem;
-
 }
 
 a {
@@ -57,7 +56,7 @@ a {
 ul {
   list-style: none;
   padding: 0;
-  margin: 0
+  margin: 0;
 }
 
 h1,
@@ -80,7 +79,6 @@ h6 {
     padding-left: 15px;
     padding-right: 15px;
   }
-
 }
 
 @media (min-width: 768px) {
@@ -105,10 +103,9 @@ h6 {
 
 header {
   padding-top: 40px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
   position: relative;
 }
-
 
 header .container {
   display: flex;
@@ -120,7 +117,6 @@ header .container nav>.menu {
   display: flex;
   align-items: center;
   gap: 20px;
-
 }
 
 header .container nav>.menu img {
@@ -129,14 +125,14 @@ header .container nav>.menu img {
 
 header .container nav>.menu li a {
   font-size: 1.4rem;
-  color: rgb(185, 182, 191);
+  color: var(--dark-grayish-blue);
   font-weight: normal;
   transition: var(--main-transition);
   padding: 4px;
 }
 
 header .container nav>.menu a:hover {
-  color: var(--section-heading-color);
+  color: var(--soft-red);
 }
 
 header .container nav .burger-menu {
@@ -145,7 +141,7 @@ header .container nav .burger-menu {
 
 @media (max-width: 767px) {
   header .container nav>.burger-menu {
-    display: inline-block;
+    display: block;
   }
 
   header .container nav>.menu {
@@ -155,13 +151,25 @@ header .container nav .burger-menu {
     gap: 30px;
     top: 0;
     right: 0;
-    width: 0%;
+    width: 70%;
     height: 100vh;
     padding: 20px;
-    background-color: var(--main-background-color);
-    background-color: purple;
+    background-color: var(--off-white);
     display: none;
-    transition: width var(--main-transition);
+  }
+
+  header .container nav>.menu::before {
+    content: "";
+    position: absolute;
+    background-color: #00000057;
+    right: 297px;
+    top: 0;
+    height: 100vh;
+    width: 44%;
+  }
+
+  header .container nav>.menu li:first-of-type {
+    margin-top: 100px;
   }
 
   header .container nav>.menu img {
@@ -176,41 +184,33 @@ header .container nav .burger-menu {
     font-weight: bold;
   }
 
-  header .container nav>.burger-menu:hover {
-    background-color: purple;
-
-  }
-
   header .container nav>.burger-menu:hover+.menu {
     display: flex;
-    width: 70%;
   }
 }
 
+/* Start Main */
 main .container {
   display: flex;
   gap: 20px;
-
 }
 
 @media (max-width: 767px) {
   main .container {
     flex-direction: column;
   }
+}
 
-}
 main .container .left-box {
-  background-color: var(--main-background-color);
+  background-color: var(--off-whiter);
+  flex: 2.5;
 }
+
 main .container .left-box .image {
   margin-bottom: 20px;
   max-width: 100%;
-
 }
 
-main .container .left-box .desktop-image {
-  width: 777px;
-}
 main .container .left-box .mobile-image {
   display: none;
 }
@@ -219,6 +219,7 @@ main .container .left-box .mobile-image {
   main .container .left-box .desktop-image {
     display: none;
   }
+
   main .container .left-box .mobile-image {
     display: block;
   }
@@ -233,7 +234,6 @@ main .container .left-box>div {
   main .container .left-box>div {
     flex-direction: column;
   }
-
 }
 
 main .container .left-box>div h1 {
@@ -247,47 +247,48 @@ main .container .left-box>div h1 {
     max-width: 300px;
     margin-bottom: 10px;
   }
-
 }
 
-
 main .container .left-box>div .text p {
-  max-width: 567px;
-  font-size: 1.6rem;
+  max-width: 350px;
+  font-size: 1.5rem;
   line-height: 1.7;
   margin: 0;
-  margin-bottom: 20px;
-  color: var(--text-color);
+  margin-bottom: 30px;
+  color: var(--dark-grayish-blue);
 }
 
 main .container .left-box>div .text a {
-  background-color: var(--buttons-color);
-  padding: 15px 40px;
-  font-size: 1.8rem;
+  background-color: var(--soft-red);
+  padding: 15px 35px;
+  font-size: 1.5rem;
   text-transform: uppercase;
-  color: var(--main-background-color);
+  color: var(--off-white);
   letter-spacing: 3px;
   width: fit-content;
   display: block;
+  white-space: nowrap;
+  transition: var(--main-transition);
+}
+
+main .container .left-box>div .text a:hover {
+  background-color: var(--very-dark-blue);
 }
 
 main .container .right-box {
-  background-color: var(--main-black-color);
+  background-color: var(--very-dark-blue);
   padding: 20px;
-  width: 465px;
-  max-width: 100%;
+  flex: 1;
 }
 
 main .container .right-box h2 {
-  color: var(--section-heading-color);
+  color: var(--soft-orange);
   font-size: 3.3rem;
   margin-bottom: 30px;
 }
 
-main .container .right-box>div {}
-
 main .container .right-box>div:not(:last-child) {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--grayish-blue);
   padding-bottom: 30px;
   margin-bottom: 20px;
 }
@@ -295,11 +296,71 @@ main .container .right-box>div:not(:last-child) {
 main .container .right-box>div h4 {
   color: white;
   font-size: 2rem;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
+
+main .container .right-box>div h4:hover {
+  color: var(--soft-orange);
 }
 
 main .container .right-box>div p {
-  color: var(--text-color);
+  color: var(--grayish-blue);
+  font-size: 1.5rem;
   line-height: 1.7;
   margin-bottom: 0;
-  max-width: 340px;
+  max-width: 300px;
 }
+
+/* End Main */
+/* Start Trending section */
+.trending {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.trending .container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  .trending .container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.trending .container .box {
+  display: flex;
+  gap: 20px;
+  counter-increment: section-number;
+}
+
+.trending .container .box img {
+  width: 100px;
+}
+
+.trending .container .box div h4 {
+  margin-bottom: 10px;
+  font-weight: 900;
+  font-size: 1.8rem;
+}
+
+.trending .container .box div h4::before {
+  content: "0" counter(section-number);
+  display: block;
+  margin-bottom: 10px;
+  font-size: 3rem;
+  color: var(--grayish-blue);
+}
+
+.trending .container .box div p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 1.5rem;
+  color: var(--dark-grayish-blue);
+  max-width: 229px;
+}
+
+/* End Trending section */
