@@ -263,6 +263,7 @@ main .container .left-box>div .text a {
   background-color: var(--soft-red);
   padding: 15px 35px;
   font-size: 1.5rem;
+  font-weight: bold;
   text-transform: uppercase;
   color: var(--off-white);
   letter-spacing: 3px;
